@@ -2,4 +2,5 @@
   :css-dirs ["resources/public/css"]
   :auto-testing true
    }
-{:main samu.cli}
+{:main samu.cli
+ :infer-externs true}

@@ -2,10 +2,11 @@
   (:require [compojure.core :refer [context defroutes GET POST]]
             [compojure.route :refer [files not-found]]
             [org.httpkit.server :refer [run-server]]
-            [ring.util.response :refer [resource-response]]))
+            [samu.common.views.wrapper :refer [wrapper]]
+            [samu.common.views index]))
 
 (defn show-landing-page [req]
-  (resource-response "index.html" {:root "public"}))
+  (wrapper index/page))
 
 (defn- update-userinfo [req]          ;; ordinary clojure function
   (let [user-id (-> req :params :id)    ; param from uri

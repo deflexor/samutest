@@ -3,6 +3,8 @@
    [goog.dom :as gdom]
    [samu.cli.store :refer [view store]]))
 
+(set! *warn-on-infer* true)
+
 (println "This text is printed from src/samu/cli.cljs. Go ahead and edit it and see reloading in action.")
 
 ;; define your app data so that it doesn't get over-written on reload
