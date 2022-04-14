@@ -2,11 +2,12 @@
   (:require [compojure.core :refer [context defroutes GET POST]]
             [compojure.route :refer [files not-found]]
             [org.httpkit.server :refer [run-server]]
-            [samu.common.views.wrapper :refer [wrapper]]
+            [samu.srv.views.wrapper :refer [wrapper]]
             [samu.common.views index]))
 
 (defn show-landing-page [req]
-  (wrapper index/page))
+  (let [state { :number 0 :text "Hi" }]
+    (wrapper (index/page state) state)))
 
 (defn- update-userinfo [req]          ;; ordinary clojure function
   (let [user-id (-> req :params :id)    ; param from uri

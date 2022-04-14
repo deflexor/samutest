@@ -25,7 +25,7 @@
 (defn view [f]
   (this-as this (fn [& args]
                   (oset! this "id" (str (.floor js/Math (* (.random js/Math) 100000))))
-                  (oset!+ curTmpl this)
+                  (set! curTmpl this)
                   (let [value (apply f args)]
-                    (oset!+ curTmpl nil)
+                    (set! curTmpl nil)
                     value))))

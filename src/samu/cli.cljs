@@ -1,14 +1,11 @@
 (ns ^:figwheel-hooks samu.cli
-  (:require
-   [goog.dom :as gdom]
-   [samu.cli.store :refer [view store]]))
+  (:require [goog.dom :as gdom]
+            [samu.cli.store :refer [store]]))
 
 (set! *warn-on-infer* true)
 
-(println "This text is printed from src/samu/cli.cljs. Go ahead and edit it and see reloading in action.")
-
 ;; define your app data so that it doesn't get over-written on reload
-(defonce app-state (atom {:text "Hello world!"}))
+(defonce app-state (store (.parse js/JSON js/appState)))
 
 (defn get-app-element []
   (gdom/getElement "app"))

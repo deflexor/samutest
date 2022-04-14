@@ -11,6 +11,7 @@
                  [http-kit "2.3.0"]
                  [compojure "1.6.2"]
                  [hiccup "1.0.5"]
+                 [org.clojure/data.json "2.4.0"]
                  [binaryage/oops "0.7.2"]]
 
   :source-paths ["src"]
