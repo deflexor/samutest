@@ -4,8 +4,8 @@
 
 (set! *warn-on-infer* true)
 
-;; define your app data so that it doesn't get over-written on reload
-(defonce app-state (store (.parse js/JSON js/appState)))
+(def app-state
+  (store js/appState))
 
 (defn get-app-element []
   (gdom/getElement "app"))

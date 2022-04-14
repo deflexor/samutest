@@ -2,8 +2,8 @@
   (:require [compojure.core :refer [context defroutes GET POST]]
             [compojure.route :refer [files not-found]]
             [org.httpkit.server :refer [run-server]]
-            [samu.srv.views.wrapper :refer [wrapper]]
-            [samu.common.views index]))
+            [samu.common.views.index :as index]
+            [samu.srv.views.wrapper :refer [wrapper]]))
 
 (defn show-landing-page [req]
   (let [state { :number 0 :text "Hi" }]
@@ -24,7 +24,8 @@
   (context "/user/:id" []
            (GET / [] get-user-by-id)
            (POST / [] update-userinfo))
-  (files "/static/") ;; static file url prefix /static, in `public` folder
+  (files "/static/" {:root "resources/public"})
+  (files "/cljs-out/" {:root "target/public/cljs-out"})
   (not-found "<p>Page not found.</p>")) ;; all other, return 404
 
 

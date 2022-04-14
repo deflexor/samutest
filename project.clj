@@ -6,6 +6,8 @@
 
   :min-lein-version "2.7.1"
 
+  :main samu.srv
+
   :dependencies [[org.clojure/clojure "1.10.0"]
                  [org.clojure/clojurescript "1.10.773"]
                  [http-kit "2.3.0"]
@@ -23,6 +25,5 @@
 
   :profiles {:dev {:dependencies [[com.bhauman/figwheel-main "0.2.15"]
                                   [com.bhauman/rebel-readline-cljs "0.1.4"]]
-                   :clean-targets ^{:protect false} [:target-path "resources/public/cljs-out"]
-                   }})
+                   :clean-targets ^{:protect false} [:target-path "resources/public/cljs-out"]}})
 

@@ -1,6 +1,11 @@
-(ns samu.common.views.index 
-  (:require #?(:cljs [oops.core :refer [oget]])
-            [samu.cli.actions :refer [decrement increment set-text]]))
+(ns samu.common.views.index
+  (:require #?(:cljs
+               [oops.core :refer [oget]])
+            #?(:cljs
+               [samu.cli.actions :refer [decrement increment set-text]])
+            #?@(:clj
+                [[samu.srv.actions :refer [decrement increment set-text]]
+                 [samu.srv.util :refer [oget]]])))
 
 (defn page [state]
   [:div
